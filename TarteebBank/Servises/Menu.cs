@@ -6,6 +6,7 @@ namespace TarteebBank.Servises
     {
         internal void ShowMenu() 
         {
+            PrintMassege("\nQuyidagilardan birini tanlang!!!");
             PrintMassege("1 - Balansni tekshirish");
             PrintMassege("2 - Balansdan pul yechish");
             PrintMassege("3 - Balansni to'ldirish");
@@ -14,7 +15,7 @@ namespace TarteebBank.Servises
             Console.Write("Tanlovingizni kiriting: ");
         }
 
-        public void PrintMassege(string massage)
+        private void PrintMassege(string massage)
         {
             Console.WriteLine(massage);
 

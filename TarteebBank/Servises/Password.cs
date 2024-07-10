@@ -4,11 +4,10 @@ namespace TarteebBank.Servises
 {
     internal class Password
     {
-        string password;
-
-        internal void GetPassword(string password) 
+        internal string GetUserValueByPassword (string massege) 
         {
-            
+            Console.Write(massege);
+            return Console.ReadLine ();
         }
     }
 }

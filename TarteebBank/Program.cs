@@ -5,29 +5,45 @@ namespace TarteebBank
 {
     internal class Program
     {
+        private static object userInputPassword;
+
         private static void Main(string[] args)
         {
             var menu = new Menu();
+            var password = new Password();
 
-            string password = "";
-
-            Console.WriteLine("TarteebBank ga hush kelibsiz!!!");
+            string userInputThoughtPassword = password.GetUserValueByPassword("Dasturdan foydalanish uchun avval o'zingizga unikal parol o'ylang!!!\n" +
+                                                                              "O'ylagan parolingiz: ");
+            
+            Console.WriteLine("\nTarteebBank ga hush kelibsiz!!!");
             Console.WriteLine("Tarteeb jamoasiga qa'bul qilinganiz uchun sizga \n" +
                               "10 000$ taqdim etildi! Endi uni sarf qilishingiz mumkin!!!\n");
 
-            Console.WriteLine("Dasturdan foydalanish uchun avval o'zingizga parol tanlang!!!");
-            Console.Write("Tanlagan parolingiz: ");
+            string userInputPassword = password.GetUserValueByPassword("Dasturdan foydalanish uchun parolingizni kiriting: ");
 
-            string userInputPassword = Console.ReadLine();
-            userInputPassword = password;
-
-            Console.WriteLine();
-            
-            if (userInputPassword == password)
+            string yesOrNo;
+            do
             {
-                menu.ShowMenu();
 
+                if (userInputPassword == userInputThoughtPassword)
+                {
+                    menu.ShowMenu();
+                }
+                else if (userInputPassword != userInputThoughtPassword) 
+                {
+                    userInputPassword = password.GetUserValueByPassword("No'tog'ri parol kiritdingiz!!!\nParolni kiriting: ");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine("Do you want to continue? (yes / no)");
+                yesOrNo = Console.ReadLine();
+
+            } while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
+            {
+                Console.WriteLine("Thank you for using our program");
             }
+
+            
         }
     }
 }
