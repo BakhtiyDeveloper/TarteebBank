@@ -11,14 +11,16 @@ namespace TarteebBank
             var password = new Password();
             var balance = new Balance();
 
-            string userInputThoughtPassword = password.GetUserValueByPassword("Dasturdan foydalanish uchun avval o'zingizga unikal parol o'ylang!!!\n" +
-                                                                              "O'ylagan parolingiz: ");
-            
-            Console.WriteLine("\nTarteebBank ga hush kelibsiz!!!");
-            Console.WriteLine("Tarteeb jamoasiga qa'bul qilinganiz uchun sizga \n" +
-                              "10 000$ taqdim etildi! Endi uni sarf qilishingiz mumkin!!!\n");
+            string userInputThoughtPassword = password.GetUserValueByPassword("Create a unique password to use the program!!!\n" +
+                                                                              "Your password is: ");
+            Console.WriteLine("Password created.........");
 
-            Console.WriteLine("Dasturdan foydalanish uchun parolingizni kiriting!!!");
+            Console.Clear();
+            Console.WriteLine("\nWelcome to TarteebBank!!!");
+            Console.WriteLine("You've been awarded 10,000 for being accepted into the Tarteeb team!\n" +
+                              "Now you can spend it!!!\n");
+
+            Console.WriteLine("Enter your password to use the program!!!");
                         
             string userInputPassword;
 
@@ -27,7 +29,7 @@ namespace TarteebBank
             {
                 do
                 {  
-                    userInputPassword = password.GetUserValueByPassword("Parolni kiriting: ");
+                    userInputPassword = password.GetUserValueByPassword("Enter password: ");
 
                 } while (userInputPassword != userInputThoughtPassword);
                 { 
@@ -37,7 +39,7 @@ namespace TarteebBank
 
                         menu.ShowMenu();
 
-                        Console.Write("Tanlovingizni kiriting: ");
+                        Console.Write("Enter your choice: ");
                         string userInputValue = Console.ReadLine();
                         int userInput = Convert.ToInt32(userInputValue);
 
@@ -61,7 +63,7 @@ namespace TarteebBank
                                 break;
 
                             case 5:
-                                Console.WriteLine("Dasturdan chiqish....");
+                                Console.WriteLine("Exit the program....");
                                 Console.WriteLine("Thank you for using our program");
                                 return;
 
