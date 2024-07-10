@@ -66,12 +66,12 @@ namespace TarteebBank
                                     break;
 
                                 case 5:
-                                    PrintMassege("Exit the program....");
-                                    PrintMassege("Thank you for using our program");
+                                    Console.WriteLine("Exit the program....");
+                                    Console.WriteLine("Thank you for using our program");
                                     return;
 
                                 default:
-                                    PrintMassege("Wrong choice. Try again.");
+                                    Console.WriteLine("Wrong choice. Try again.");
                                     break;
                             }
                         }
@@ -84,17 +84,19 @@ namespace TarteebBank
                 {
                     Console.WriteLine("Thank you for using our program");
                 }
-
-                static string PrintMassege(string massege)
-                {
-                    return (massege);
-                }            
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("Restart the program");
             }
-        }      
+
+            Console.ReadKey();
+        }
+
+        static void PrintMassege(string massege)
+        {
+            Console.WriteLine(massege);
+        }
     }
 }
