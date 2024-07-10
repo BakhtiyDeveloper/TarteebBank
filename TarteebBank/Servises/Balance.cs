@@ -7,26 +7,25 @@ namespace TarteebBank.Servises
         internal void ShowBalance(decimal startBalance) 
         {
             Console.Clear();
-            Console.WriteLine($"Hozirda sizning balansingiz: {startBalance}$");
+            PrintMassege($"Your current balance is: ${startBalance}");
         }
 
         internal decimal WithdrawBalance(decimal startBalance)
         {
             Console.Clear();
-            Console.WriteLine("Balansingizdan qancha miqdorda pul yechmoqchisiz?");
-            Console.Write("Qiymatini kiriting: ");
+            PrintMassege("How much money you want to withdraw from your balance?");
+            Console.Write("Enter the value: ");
             string userInputValueWithdrawBalance = Console.ReadLine();
             decimal withdrawValue = Convert.ToDecimal(userInputValueWithdrawBalance);
 
             if (withdrawValue > 0 && withdrawValue <= startBalance)
             {
                 startBalance -= withdrawValue;
-                Console.WriteLine($"Hisobingizdan {withdrawValue}$ yechdingiz. Hozirda hisobingizda balans: {startBalance}$ bor.");
-                
+                PrintMassege($"You have withdrawn ${withdrawValue} from your balance. Your current balance: ${startBalance}.");                
             }
             else
             {
-                Console.WriteLine($"Yechiladigan miqdor {startBalance} oshmasligi kerak.");
+                PrintMassege($"The withdrawal amount cannot exceed ${startBalance}.");
             }
 
             return startBalance;
@@ -35,19 +34,19 @@ namespace TarteebBank.Servises
         internal decimal TopUpBalance(decimal startBalance)
         {
             Console.Clear();
-            Console.WriteLine("Balansni qancha miqdorda to'ldirmoqchisiz?");
-            Console.WriteLine("Qiymatini kiriting: ");
+            PrintMassege("How much do you want to top up the balance?");
+            Console.Write("Enter the value: ");
             string userInputValueTopUpBalance = Console.ReadLine();
             decimal topUpValue = Convert.ToDecimal(userInputValueTopUpBalance);
 
             if (topUpValue > 0)
             {
                 startBalance += topUpValue;
-                Console.WriteLine($"Hisobingizni {topUpValue}$ ga to'ldirdingiz. Hozirda hisobingizda: {startBalance}$ bor");
+                PrintMassege($"You have topped up your balance by ${topUpValue}. Your current balance: ${startBalance}.");
             }
             else
             {
-                Console.WriteLine("To'ldiriladigan miqdor 0 dan katta bo'lishi kerak.");
+                PrintMassege("The amount to be filled must be a positive number.");
             }
 
             return startBalance;
@@ -56,14 +55,14 @@ namespace TarteebBank.Servises
         internal decimal GetExpenceBalance (decimal startBalance) 
         {
             Console.Clear ();
-            PrintMassege("Harajat qilish uchun mahsulotlar!!!");
-            PrintMassege("1 - Kompyuter PC. Narhi = $2000");
-            PrintMassege("2 - Noutbuk ACER. Narhi = $1800");
-            PrintMassege("3 - MacBook Pro m5. Narhi = $3000");
-            PrintMassege("4 - Monitor ACER. Narhi = $1000");
-            PrintMassege("5 - Shaxsiy harajatlar uchun. $2000");
+            PrintMassege("Products to spend!!!");
+            PrintMassege("1 - Computer PC. Price = $2000");
+            PrintMassege("2 - Laptop ACER. Price = $1800");
+            PrintMassege("3 - MacBook Pro m5. Price = $3000");
+            PrintMassege("4 - Monitor ACER. Price = $1000");
+            PrintMassege("5 - For personal expenses. $2000");
 
-            Console.Write("Tanlovingizni kiriting: ");
+            Console.Write("Enter your choice: ");
             string userInputChooceExpence = Console.ReadLine();
             int chooceExpence = Convert.ToInt32(userInputChooceExpence);
 
@@ -73,37 +72,37 @@ namespace TarteebBank.Servises
             {
                 case 1:
                     expenceBalance = 2000;
-                    PrintMassege("Harid muvaffaqiyatli amalga oshirildi");
+                    PrintPurchaseMade();
                     break;
                 case 2:
                     expenceBalance = 1800;
-                    PrintMassege("Harid muvaffaqiyatli amalga oshirildi");
+                    PrintPurchaseMade();
                     break;
                 case 3:
                     expenceBalance = 3000;
-                    PrintMassege("Harid muvaffaqiyatli amalga oshirildi");
+                    PrintPurchaseMade();
                     break;
                 case 4:
                     expenceBalance = 1000;
-                    PrintMassege("Harid muvaffaqiyatli amalga oshirildi");
+                    PrintPurchaseMade();
                     break;
                 case 5:
                     expenceBalance = 2000;
-                    PrintMassege("Harid muvaffaqiyatli amalga oshirildi");
+                    PrintPurchaseMade();
                     break;
                 default:
-                    Console.WriteLine("Noto'g'ri tanlov. Dasturni qayta ishlating!!!");
+                    PrintMassege("Wrong choice. Run the program again!!!");
                     return startBalance;  
             }
 
             if (chooceExpence > startBalance) 
             {
-                Console.WriteLine("Balansingizda yetarli mablag' mavjud emas!!!");
+                PrintMassege("You don't have enough funds in your balance!!!");
             }
             else 
             {
                 startBalance -= expenceBalance;
-                Console.WriteLine($"Siz ${expenceBalance} sarfladingiz. Hozirda hisobingizda ${startBalance} bor.");
+                PrintMassege($"You spent ${expenceBalance}. Your current balance: ${startBalance}.");
             }
 
             return startBalance;
@@ -112,6 +111,11 @@ namespace TarteebBank.Servises
         private void PrintMassege(string massage)
         {
             Console.WriteLine(massage);
+        }
+
+        private void PrintPurchaseMade()
+        {
+            Console.WriteLine("The purchase was made successfully");
         }
     }
 }

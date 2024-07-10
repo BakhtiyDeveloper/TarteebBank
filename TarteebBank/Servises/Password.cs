@@ -7,7 +7,7 @@ namespace TarteebBank.Servises
         internal string GetUserValueByPassword (string massege) 
         {
             Console.Write(massege);
-            return Console.ReadLine ();
+            return Console.ReadLine();
         }
     }
 }
