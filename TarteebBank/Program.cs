@@ -13,14 +13,14 @@ namespace TarteebBank
 
             string userInputThoughtPassword = password.GetUserValueByPassword("Create a unique password to use the program!!!\n" +
                                                                               "Your password is: ");
-            Console.WriteLine("Password created.........");
+            PrintMassege("Password created.........");
 
             Console.Clear();
-            Console.WriteLine("\nWelcome to TarteebBank!!!");
-            Console.WriteLine("You've been awarded 10,000 for being accepted into the Tarteeb team!\n" +
+            PrintMassege("\nWelcome to TarteebBank!!!");
+            PrintMassege("You've been awarded 10,000 for being accepted into the Tarteeb team!\n" +
                               "Now you can spend it!!!\n");
 
-            Console.WriteLine("Enter your password to use the program!!!");
+            PrintMassege("Enter your password to use the program!!!");
                         
             string userInputPassword;
 
@@ -63,19 +63,18 @@ namespace TarteebBank
                                 break;
 
                             case 5:
-                                Console.WriteLine("Exit the program....");
-                                Console.WriteLine("Thank you for using our program");
+                                PrintMassege("Exit the program....");
+                                PrintMassege("Thank you for using our program");
                                 return;
 
                             default:
-                                Console.WriteLine("Noto'g'ri tanlov. Qayta urinib ko'ring.");
+                                PrintMassege("Wrong choice. Try again.");
                                 break;
                         }
                     }
                 }
                 
-                Console.WriteLine();
-                Console.WriteLine("Do you want to continue? (yes / no)");
+                Console.WriteLine("\nDo you want to continue? (yes / no)");
                 yesOrNo = Console.ReadLine();
 
             } while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
@@ -83,7 +82,10 @@ namespace TarteebBank
                 Console.WriteLine("Thank you for using our program");
             }
 
-            
+            static string PrintMassege(string massege) 
+            {
+                return (massege);
+            }  
         }
     }
 }
