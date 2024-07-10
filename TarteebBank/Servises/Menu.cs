@@ -11,14 +11,12 @@ namespace TarteebBank.Servises
             PrintMassege("2 - Balansdan pul yechish");
             PrintMassege("3 - Balansni to'ldirish");
             PrintMassege("4 - Xarajat qilish");
-            PrintMassege("5 - Dasturdan chiqish");
-            Console.Write("Tanlovingizni kiriting: ");
+            PrintMassege("5 - Dasturdan chiqish");            
         }
 
         private void PrintMassege(string massage)
         {
             Console.WriteLine(massage);
-
         }
     }
 }
