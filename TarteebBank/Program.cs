@@ -7,86 +7,94 @@ namespace TarteebBank
     {
         private static void Main(string[] args)
         {
-            var menu = new Menu();
-            var password = new Password();
-            var balance = new Balance();
-
-            string userInputThoughtPassword = password.GetUserValueByPassword("Create a unique password to use the program!!!\n" +
-                                                                              "Your password is: ");
-            
-            PrintMassege("Password created.........");
-
-            Console.Clear();
-            PrintMassege("\nWelcome to TarteebBank!!!");
-            PrintMassege("You've been awarded 10,000 for being accepted into the Tarteeb team!\n" +
-                         "Now you can spend it!!!\n");
-
-            PrintMassege("Enter your password to use the program!!!");
-                        
-            string userInputPassword;
-
-            string yesOrNo;
-            do
+            try
             {
+                var menu = new Menu();
+                var password = new Password();
+                var balance = new Balance();
+
+                string userInputThoughtPassword = password.GetUserValueByPassword("Create a unique password to use the program!!!\n" +
+                                                                                  "Your password is: ");
+
+                PrintMassege("Password created.........");
+
+                Console.Clear();
+                PrintMassege("\nWelcome to TarteebBank!!!");
+                PrintMassege("You've been awarded 10,000 for being accepted into the Tarteeb team!\n" +
+                             "Now you can spend it!!!\n");
+
+                PrintMassege("Enter your password to use the program!!!");
+
+                string userInputPassword;
+
+                string yesOrNo;
                 do
-                {  
-                    userInputPassword = password.GetUserValueByPassword("Enter password: ");
-
-                } while (userInputPassword != userInputThoughtPassword);
-                { 
-                    if (userInputPassword == userInputThoughtPassword) 
+                {
+                    do
                     {
-                        decimal startBalance = 10000.00m;
+                        userInputPassword = password.GetUserValueByPassword("Enter password: ");
 
-                        menu.ShowMenu();
-
-                        Console.Write("Enter your choice: ");
-                        string userInputValue = Console.ReadLine();
-                        int userInput = Convert.ToInt32(userInputValue);
-
-                        switch (userInput)
+                    } while (userInputPassword != userInputThoughtPassword);
+                    {
+                        if (userInputPassword == userInputThoughtPassword)
                         {
-                            case 1:
+                            decimal startBalance = 10000.00m;
 
-                                balance.ShowBalance(startBalance);
-                                break;
+                            menu.ShowMenu();
 
-                            case 2:
-                                balance.WithdrawBalance(startBalance);
-                                break;
+                            Console.Write("Enter your choice: ");
+                            string userInputValue = Console.ReadLine();
+                            int userInput = Convert.ToInt32(userInputValue);
 
-                            case 3:
-                                balance.TopUpBalance(startBalance);
-                                break;
+                            switch (userInput)
+                            {
+                                case 1:
 
-                            case 4:
-                                balance.GetExpenceBalance(startBalance);
-                                break;
+                                    balance.ShowBalance(startBalance);
+                                    break;
 
-                            case 5:
-                                PrintMassege("Exit the program....");
-                                PrintMassege("Thank you for using our program");
-                                return;
+                                case 2:
+                                    balance.WithdrawBalance(startBalance);
+                                    break;
 
-                            default:
-                                PrintMassege("Wrong choice. Try again.");
-                                break;
+                                case 3:
+                                    balance.TopUpBalance(startBalance);
+                                    break;
+
+                                case 4:
+                                    balance.GetExpenceBalance(startBalance);
+                                    break;
+
+                                case 5:
+                                    PrintMassege("Exit the program....");
+                                    PrintMassege("Thank you for using our program");
+                                    return;
+
+                                default:
+                                    PrintMassege("Wrong choice. Try again.");
+                                    break;
+                            }
                         }
                     }
+
+                    Console.WriteLine("\nDo you want to continue? (yes / no)");
+                    yesOrNo = Console.ReadLine();
+
+                } while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
+                {
+                    Console.WriteLine("Thank you for using our program");
                 }
-                
-                Console.WriteLine("\nDo you want to continue? (yes / no)");
-                yesOrNo = Console.ReadLine();
 
-            } while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
-            {
-                Console.WriteLine("Thank you for using our program");
+                static string PrintMassege(string massege)
+                {
+                    return (massege);
+                }            
             }
-
-            static string PrintMassege(string massege) 
+            catch (Exception ex)
             {
-                return (massege);
-            }  
-        }
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Restart the program");
+            }
+        }      
     }
 }

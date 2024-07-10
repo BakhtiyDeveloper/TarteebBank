@@ -139,3 +139,88 @@ internal decimal TopUpBalance(decimal startBalance)
 #### 7.View Expenses:
 
 * The user selects option 4 to view their expenses.
+
+```cs
+'''
+internal decimal GetExpenceBalance (decimal startBalance) 
+{
+    Console.Clear ();
+    PrintMassege("Products to spend!!!");
+    PrintMassege("1 - Computer PC. Price = $2000");
+    PrintMassege("2 - Laptop ACER. Price = $1800");
+    PrintMassege("3 - MacBook Pro m5. Price = $3000");
+    PrintMassege("4 - Monitor ACER. Price = $1000");
+    PrintMassege("5 - For personal expenses. $2000");
+
+    Console.Write("Enter your choice: ");
+    string userInputChooceExpence = Console.ReadLine();
+    int chooceExpence = Convert.ToInt32(userInputChooceExpence);
+
+    decimal expenceBalance = 0;
+
+    switch (chooceExpence)
+    {
+        case 1:
+            expenceBalance = 2000;
+            PrintPurchaseMade();
+
+            break;
+        case 2:
+            expenceBalance = 1800;
+            PrintPurchaseMade();
+            break;
+        case 3:
+            expenceBalance = 3000;
+            PrintPurchaseMade();
+            break;
+        case 4:
+            expenceBalance = 1000;
+            PrintPurchaseMade();
+            break;
+        case 5:
+            expenceBalance = 2000;
+            PrintPurchaseMade();
+            break;
+        default:
+            PrintMassege("Wrong choice. Run the program again!!!");
+            return startBalance;  
+    }
+
+    if (chooceExpence > startBalance) 
+    {
+        PrintMassege("You don't have enough funds in your balance!!!");
+    }
+    else 
+    {
+        startBalance -= expenceBalance;
+        PrintMassege($"You spent ${expenceBalance}. Your current balance: ${startBalance}.");
+    }
+
+    return startBalance;
+}
+
+'''
+```
+
+#### 8. Exit:
+
+* The user selects option 5 to exit the program.
+* The program will display an exit message and terminate.
+
+#### 9. Continue:
+
+* After each transaction, the program asks the user whether they want to continue or exit.
+
+```cs 
+'''
+Console.WriteLine("\nDo you want to continue? (yes / no)");
+yesOrNo = Console.ReadLine();
+
+while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
+{
+    Console.WriteLine("Thank you for using our program");
+}
+
+'''
+```
+
