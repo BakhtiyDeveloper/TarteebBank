@@ -73,6 +73,7 @@ namespace TarteebBank.Servises
                 case 1:
                     expenceBalance = 2000;
                     PrintPurchaseMade();
+
                     break;
                 case 2:
                     expenceBalance = 1800;

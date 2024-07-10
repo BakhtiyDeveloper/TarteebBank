@@ -13,12 +13,13 @@ namespace TarteebBank
 
             string userInputThoughtPassword = password.GetUserValueByPassword("Create a unique password to use the program!!!\n" +
                                                                               "Your password is: ");
+            
             PrintMassege("Password created.........");
 
             Console.Clear();
             PrintMassege("\nWelcome to TarteebBank!!!");
             PrintMassege("You've been awarded 10,000 for being accepted into the Tarteeb team!\n" +
-                              "Now you can spend it!!!\n");
+                         "Now you can spend it!!!\n");
 
             PrintMassege("Enter your password to use the program!!!");
                         
