@@ -1,5 +1,7 @@
 > # Welcome to project TarteebBank
 
+![alt text](/resultGif/image.png)
+
 ## About the Project and Overview
 
 ### TarteebBank is a balance management application designed for users to log in with a password and have the ability to view their balance, add funds, withdraw funds, and view expenses.
