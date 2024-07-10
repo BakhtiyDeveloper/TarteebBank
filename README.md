@@ -224,3 +224,10 @@ while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
 '''
 ```
 
+### Result to GIF
+
+![Result to GIF](/resultGif/result%20gif.gif)
+
+Download the program [TarteebBank](https://drive.google.com/file/d/14KxVGaipxwsVoqS3ygpxB3KGUii3Ux8P/view?usp=sharing).
+
+># I'm glad you are using the program.
