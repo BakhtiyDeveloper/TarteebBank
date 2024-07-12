@@ -16,9 +16,8 @@ namespace TarteebBank
                 string userInputThoughtPassword = password.GetUserValueByPassword("Create a unique password to use the program!!!\n" +
                                                                                   "Your password is: ");
 
-                PrintMassege("Password created.........");
-
                 Console.Clear();
+                PrintMassege("Password created.........");
                 PrintMassege("\nWelcome to TarteebBank!!!");
                 PrintMassege("You've been awarded 10,000 for being accepted into the Tarteeb team!\n" +
                              "Now you can spend it!!!\n");
@@ -68,6 +67,7 @@ namespace TarteebBank
                                 case 5:
                                     Console.WriteLine("Exit the program....");
                                     Console.WriteLine("Thank you for using our program");
+                                    Console.ReadLine();
                                     return;
 
                                 default:
@@ -83,6 +83,7 @@ namespace TarteebBank
                 } while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
                 {
                     Console.WriteLine("Thank you for using our program");
+                    Console.ReadKey();
                 }
             }
             catch (Exception ex)
@@ -92,11 +93,6 @@ namespace TarteebBank
             }
 
             Console.ReadKey();
-        }
-
-        static void PrintMassege(string massege)
-        {
-            Console.WriteLine(massege);
         }
     }
 }
